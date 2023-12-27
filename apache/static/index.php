@@ -21,33 +21,37 @@ if ($method === "GET") {
         } else {
             getUniversities($connection);
         }
-    } else {
-        notFoundPage();
-    }
+    } 
+    // else {
+    //     notFoundPage();
+    // }
 } elseif ($method === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
     if ($page === "students") {
         createStudent($connection, $data);
     } elseif ($page === "universities") {
         createUniversity($connection, $data);
-    } else {
-        notFoundPage();
-    }
+    } 
+    // else {
+    //     notFoundPage();
+    // }
 } elseif ($method === "DELETE") {
     if ($page === "students" && $id) {
         deleteStudentById($connection, $id);
     } elseif ($page === "universities" && $id) {
         deleteUniversityById($connection, $id);
-    } else {
-        notFoundPage();
-    }
+    } 
+    // else {
+    //     notFoundPage();
+    // }
 } elseif ($method === "PUT") {
     $data = json_decode(file_get_contents("php://input"), true);
     if ($page === "students" && $id) {
         updateStudentById($connection, $id, $data);
     } elseif ($page === "universities" && $id) {
         updateUniversityById($connection, $id, $data);
-    } else {
-        notFoundPage();
-    }
+    } 
+    // else {
+    //     notFoundPage();
+    // }
 }
